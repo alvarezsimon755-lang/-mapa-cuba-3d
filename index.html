@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuba - Mapa Interactivo</title>
+
+  <!-- CSS de MapLibre GL JS (librería del mapa 3D, gratuita y sin API key) -->
+  <link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet" />
+
+  <!-- Estilos propios de esta app -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Encabezado fijo con el título del proyecto -->
+  <header id="encabezado">
+    <h1>Cuba <span class="encabezado-separador">·</span> Mapa Interactivo</h1>
+    <p class="encabezado-subtitulo">Provincias, capitales y relieve en 3D</p>
+  </header>
+
+  <!-- Contenedor principal: mapa + panel lateral -->
+  <main id="contenedor-principal">
+
+    <!-- Acá se monta el mapa de MapLibre -->
+    <div id="map"></div>
+
+    <!-- Ayuda de controles, flotante sobre el mapa (abajo a la izquierda) -->
+    <div id="ayuda-controles">
+      <strong>Controles:</strong>
+      <ul>
+        <li>Arrastrar: rotar el mapa</li>
+        <li>Rueda del mouse: zoom</li>
+        <li>Click derecho + arrastrar (o 2 dedos): inclinar</li>
+      </ul>
+      <button id="btn-reset-vista" type="button">Restablecer vista</button>
+    </div>
+
+    <!-- Panel de información de la provincia seleccionada -->
+    <aside id="panel">
+      <button id="panel-cerrar" type="button" aria-label="Cerrar panel">✕</button>
+      <div id="panel-contenido">
+        <p class="panel-placeholder">👆 Hacé click en una provincia del mapa para ver su información.</p>
+      </div>
+    </aside>
+
+    <!-- Pantalla de carga, se oculta sola cuando el mapa termina de cargar -->
+    <div id="loader">
+      <div class="loader-spinner"></div>
+      <p>Cargando mapa 3D de Cuba…</p>
+    </div>
+
+  </main>
+
+  <!-- Librería MapLibre GL JS, cargada desde un CDN público (no requiere key) -->
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+
+  <!-- Lógica de la app (datos de provincias/ciudades + configuración del mapa) -->
+  <script src="app.js"></script>
+</body>
+</html>
